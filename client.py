@@ -44,7 +44,7 @@ async def create_upload_file(file:UploadFile=File(...)):
     with open(os.path.join(client_DIR,str(file.filename)),"rb") as f:
         response = requests.post(url, files={"file": f})
         #response_json,response_file=response[0],response[1]
-        with open(os.path.join(client_DIR,'response_from_server.csv'), 'wb') as f:
+        with open(os.path.join(client_DIR,'responce_from_server.csv'), 'wb') as f:
             f.write(response.content)
     os.remove(os.path.join(client_DIR,str(file.filename)))
     return "file_saved"
