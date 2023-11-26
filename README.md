@@ -40,7 +40,7 @@ pip install -r requiremets.txt
 
 ## Server Setup
 
-Ensure that the server script (`server.py`) is properly configured. This script will start a FastAPI application that waits for image uploads and performs the table data extraction task.
+The server script (`server.py`) will start a FastAPI application that waits for image uploads and performs the table data extraction task.
 
 ## Client Interaction
 
@@ -51,28 +51,24 @@ The client script (`client.py`) serves as a user interface for the system. It al
 Start the server:
 
 ```bash
-python server.py
+python3 server.py
 ```
 
 The server will be running on http://localhost:9001  
 Run the client:
 ```bash
-python client.py
+python3 client.py
 ```
 
-The client will connect to http://localhost:9002 by default. You can upload images via this endpoint to process them into CSV format.
+The client will connect to http://localhost:9002. client can upload images via this endpoint to process them into CSV format.  
 
-Upload an image using the client's upload feature:
+## System Workflow  
 
-The user calls the /post endpoint to upload an image.
-The image is processed by the server, and a CSV file is returned.  
+- The client API receives an image upload via an HTTP POST request.
+- The server API accepts the image from the client and processes it.
+- The csv_generater function is called within the server script,to extract table data.
+- The client receives the CSV file as a response from the server.
+- The CSV file is saved in client's system. 
 
-System Workflow
-The client API receives an image upload via an HTTP POST request.
-The server API accepts the image from the client and processes it.
-The csv_generater function is called within the server script, using model prediction and PaddleOCR to extract table data.
-Processed data is saved in CSV format in the server's database directory.
-The client receives the CSV file as a response from the server.  
-
-License
+## License
 Licensed under the MIT License.
