@@ -27,10 +27,10 @@ Before running the Python scripts, ensure the following are installed:
 - tensorflow-gpu==2.4.0
 - tensorflow==2.4.1
 - keras==2.4.3
-- FastAPI
-- Uvicorn
-- wget
-- pydantic
+- fastapi~=0.75.0
+- uvicorn==0.17.6
+- wget==3.2
+- pydantic==1.9.1
 
 To install the required packages, run:
 
